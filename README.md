@@ -2,30 +2,30 @@
 
 A beautiful iOS app to listen to radio stations from around the world. Built with SwiftUI, powered by Radio Browser API, featuring on-device AI recommendations.
 
-![iOS](https://img.shields.io/badge/iOS-16.0+-blue.svg)
+![iOS](https://img.shields.io/badge/iOS-17.0+-blue.svg)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
 
 ## ⭐ Features
 
-- **🌍 Worldwide Radio** - Listen to 50,000+ radio stations from 200+ countries
+- **🌍 Worldwide Radio** - Listen to 30,000+ radio stations from 200+ countries
 - **🔊 High Quality Streaming** - Support for various audio formats (MP3, AAC, OGG)
-- **🤖 AI Recommendations** - On-device machine learning that learns your preferences
 - **🎨 Beautiful UI** - Dark/Light mode support with modern SwiftUI design
 - **⏰ Sleep Timer** - Auto-stop playback after a set time
 - **❤️ Favorites** - Save your favorite stations
-- **📜 History** - Track your recently played stations
-- **🔍 Search** - Find stations by name, country, or genre
+- **🔍 Search** - Find stations by name or country
 - **📱 Background Audio** - Continue listening when app is in background
 - **🎛️ Lock Screen Controls** - Control playback from lock screen
+- **🔄 Multi-Server Support** - Reliable connection with automatic server failover
 
 ## 📸 Screenshots
 
-<div style="display: flex; gap: 10px;">
-  <img src="https://via.placeholder.com/150x300/007AFF/FFFFFF?text=Home" width="150" alt="Home Screen">
-  <img src="https://via.placeholder.com/150x300/007AFF/FFFFFF?text=Explore" width="150" alt="Explore Screen">
-  <img src="https://via.placeholder.com/150x300/007AFF/FFFFFF?text=Player" width="150" alt="Player Screen">
-  <img src="https://via.placeholder.com/150x300/007AFF/FFFFFF?text=Settings" width="150" alt="Settings Screen">
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <img src="https://via.placeholder.com/150x300/1a1a2e/ffffff?text=Home" width="150" alt="Home Screen">
+  <img src="https://via.placeholder.com/150x300/1a1a2e/ffffff?text=Explore" width="150" alt="Explore Screen">
+  <img src="https://via.placeholder.com/150x300/1a1a2e/ffffff?text=Player" width="150" alt="Player Screen">
+  <img src="https://via.placeholder.com/150x300/1a1a2e/ffffff?text=Settings" width="150" alt="Settings Screen">
 </div>
 
 ## 🏗️ Architecture
@@ -38,9 +38,9 @@ WorldRadio/
 ├── Views/                  # SwiftUI Views
 │   ├── Home/              # Country list
 │   ├── Player/            # Mini & Full player
-│   ├── Explore/            # Genre browsing & AI recommendations
-│   ├── Favorites/          # Saved stations
-│   ├── Settings/           # App settings
+│   ├── Explore/           # Genre browsing
+│   ├── Favorites/         # Saved stations
+│   ├── Settings/          # App settings
 │   └── Components/        # Reusable UI components
 ├── Services/              # API, Audio, ML services
 ├── Resources/             # Assets
@@ -53,49 +53,43 @@ WorldRadio/
 |----------|------------|
 | Framework | SwiftUI |
 | Language | Swift 5.9 |
-| Min iOS | iOS 16.0 |
+| Min iOS | iOS 17.0 |
 | Architecture | MVVM |
 | Audio | AVFoundation, AVPlayer |
 | API | Radio Browser API |
-| ML | Create ML, Core ML |
 | Storage | UserDefaults |
 
 ## 📡 API
 
 This app uses the free, open-source [Radio Browser API](https://api.radio-browser.info):
 
-- **Base URL**: `https://de1.api.radio-browser.info/json`
+- **Base URLs**: Multiple server endpoints for reliability
+  - `https://de1.api.radio-browser.info/json`
+  - `https://at1.api.radio-browser.info/json`
+  - `https://nl1.api.radio-browser.info/json`
+  - `https://fr1.api.radio-browser.info/json`
 - **No API key required**
 - **Rate limit**: Fair use policy
 
-## 🤖 AI Recommendations
-
-The app uses Apple's **Create ML** framework for on-device machine learning:
-
-- **Privacy-first**: All data stays on your device
-- **No internet required**: Works offline after initial data
-- **Learns from**: Stations you listen to, favorites, and listening duration
-- **Recommends**: Similar stations based on your taste
-
-### How it works:
-
-1. Records your listening behavior (genre, country, duration)
-2. Builds a preference profile locally
-3. Suggests stations matching your taste
-4. Improves over time as you use the app
+### Features
+- Automatic server failover
+- 30-second timeout
+- Broken station filtering
+- Sorted by popularity (votes)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - macOS with Xcode 15+
+- iOS 17.0+ for development
 - Apple Developer Account (for device testing/deployment)
 
 ### Installation
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/barancanercan/WorldRadio.git
+   git clone https://github.com/Omerfiratgozutok/WorldRadio.git
    cd WorldRadio
    ```
 
@@ -111,7 +105,7 @@ The app uses Apple's **Create ML** framework for on-device machine learning:
    ```
 
 4. **Run on Simulator:**
-   - Select an iOS Simulator (iPhone 14 Pro recommended)
+   - Select an iOS Simulator (iPhone 17 Pro recommended)
    - Press `Cmd + R` to build and run
 
 ### Building for Device
@@ -141,16 +135,33 @@ The app uses Apple's **Create ML** framework for on-device machine learning:
 
 4. **Submit for Review** - Use Xcode or Transporter app
 
-## 📄 Files
+## 🔧 Configuration
+
+### Info.plist Settings
+- Background audio mode enabled
+- iOS 17+ orientation support
+- Dark mode default
+- Media URL permissions for streaming
+
+### project.yml
+- Minimum iOS: 17.0
+- Swift Version: 5.9
+- Bundle ID: com.worldradio.app
+
+## 📄 Project Structure
 
 | File | Description |
 |------|-------------|
 | `project.yml` | XcodeGen configuration |
 | `Info.plist` | App configuration |
 | `WorldRadioApp.swift` | App entry point |
-| `RadioAPIService.swift` | API client |
-| `AudioPlayerService.swift` | Audio playback |
-| `MLRecommendationService.swift` | AI recommendations |
+| `RadioAPIService.swift` | Multi-server API client |
+| `AudioPlayerService.swift` | Audio playback with background support |
+| `MLRecommendationService.swift` | User preference learning |
+| `Station.swift` | Radio station model |
+| `Country.swift` | Country model with flags |
+| `HomeView.swift` | Country list view |
+| `PlayerViewModel.swift` | Audio playback state management |
 
 ## 🤝 Contributing
 
@@ -169,7 +180,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🙏 Acknowledgments
 
 - [Radio Browser API](https://www.radio-browser.info) - Free radio station data
-- [Apple Developer](https://developer.apple.com) - SwiftUI and Create ML frameworks
+- [Apple Developer](https://developer.apple.com) - SwiftUI frameworks
+- [XcodeGen](https://github.com/yonaskolb/XcodeGen) - Project generation
 - All contributors and testers
 
 ---
