@@ -1,5 +1,4 @@
 import Foundation
-import CreateML
 import CoreML
 
 @MainActor
@@ -11,6 +10,8 @@ class MLRecommendationService: ObservableObject {
     @Published var isTraining = false
     
     private var userPreferences: UserPreferences = UserPreferences()
+    private var saveTask: Task<Void, Never>?
+    private let saveQueue = DispatchQueue(label: "com.worldradio.ml.save", qos: .utility)
     
     private init() {
         loadPreferences()
@@ -18,17 +19,17 @@ class MLRecommendationService: ObservableObject {
     
     func recordListen(station: Station) {
         userPreferences.recordListen(station: station)
-        savePreferences()
+        debouncedSave()
     }
     
     func recordFavorite(station: Station) {
         userPreferences.recordFavorite(station: station)
-        savePreferences()
+        debouncedSave()
     }
     
     func recordSkip(station: Station) {
         userPreferences.recordSkip(station: station)
-        savePreferences()
+        debouncedSave()
     }
     
     func getRecommendations() -> [String] {
@@ -39,16 +40,32 @@ class MLRecommendationService: ObservableObject {
         return userPreferences.getRecommendedCountries()
     }
     
+    private func debouncedSave() {
+        saveTask?.cancel()
+        saveTask = Task {
+            try? await Task.sleep(nanoseconds: 500_000_000)
+            guard !Task.isCancelled else { return }
+            savePreferences()
+        }
+    }
+    
     private func savePreferences() {
-        if let data = try? JSONEncoder().encode(userPreferences) {
+        do {
+            let data = try JSONEncoder().encode(userPreferences)
             UserDefaults.standard.set(data, forKey: "userPreferences")
+        } catch {
+            print("Failed to save preferences: \(error)")
         }
     }
     
     private func loadPreferences() {
-        if let data = UserDefaults.standard.data(forKey: "userPreferences"),
-           let prefs = try? JSONDecoder().decode(UserPreferences.self, from: data) {
-            userPreferences = prefs
+        guard let data = UserDefaults.standard.data(forKey: "userPreferences") else { return }
+        
+        do {
+            userPreferences = try JSONDecoder().decode(UserPreferences.self, from: data)
+        } catch {
+            print("Failed to load preferences: \(error)")
+            userPreferences = UserPreferences()
         }
     }
 }
@@ -61,21 +78,27 @@ struct UserPreferences: Codable {
     
     mutating func recordListen(station: Station) {
         totalListens += 1
-        for tag in station.tagsArray {
+        for tag in station.tagsArray where !tag.isEmpty {
             genreCounts[tag, default: 0] += 1
         }
-        countryCounts[station.countryCode, default: 0] += 1
+        let countryCode = station.countryCode
+        if !countryCode.isEmpty {
+            countryCounts[countryCode, default: 0] += 1
+        }
     }
     
     mutating func recordFavorite(station: Station) {
-        for tag in station.tagsArray {
+        for tag in station.tagsArray where !tag.isEmpty {
             genreCounts[tag, default: 0] += 5
         }
-        countryCounts[station.countryCode, default: 0] += 5
+        let countryCode = station.countryCode
+        if !countryCode.isEmpty {
+            countryCounts[countryCode, default: 0] += 5
+        }
     }
     
     mutating func recordSkip(station: Station) {
-        for tag in station.tagsArray {
+        for tag in station.tagsArray where !tag.isEmpty {
             skipCounts[tag, default: 0] += 1
         }
     }

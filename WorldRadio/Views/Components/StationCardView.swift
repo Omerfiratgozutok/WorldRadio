@@ -7,7 +7,7 @@ struct StationCardView: View {
     var body: some View {
         Button(action: onPlay) {
             VStack(alignment: .leading, spacing: 8) {
-                AsyncImage(url: URL(string: station.favicon ?? "")) { image in
+                AsyncImage(url: station.faviconURL) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)

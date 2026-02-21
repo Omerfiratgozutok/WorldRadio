@@ -3,7 +3,6 @@ import SwiftUI
 struct FullPlayerView: View {
     @EnvironmentObject var playerViewModel: PlayerViewModel
     @Environment(\.dismiss) var dismiss
-    @State private var volume: Double = 1.0
     
     var body: some View {
         NavigationStack {
@@ -18,7 +17,7 @@ struct FullPlayerView: View {
                 VStack(spacing: 32) {
                     Spacer()
                     
-                    AsyncImage(url: URL(string: playerViewModel.currentStation?.favicon ?? "")) { image in
+                    AsyncImage(url: playerViewModel.currentStation?.faviconURL) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -53,11 +52,13 @@ struct FullPlayerView: View {
                     VStack(spacing: 24) {
                         HStack(spacing: 40) {
                             Button {
-                                playerViewModel.setVolume(Float(volume - 0.1))
+                                let newVolume = max(0, playerViewModel.volume - 0.1)
+                                playerViewModel.setVolume(newVolume)
                             } label: {
                                 Image(systemName: "speaker.fill")
                                     .font(.title3)
                             }
+                            .accessibilityLabel("Decrease volume")
                             
                             Button {
                                 playerViewModel.togglePlayPause()
@@ -66,21 +67,25 @@ struct FullPlayerView: View {
                                     .font(.system(size: 72))
                             }
                             .foregroundStyle(.white)
+                            .accessibilityLabel(playerViewModel.isPlaying ? "Pause" : "Play")
                             
                             Button {
-                                playerViewModel.setVolume(Float(volume + 0.1))
+                                let newVolume = min(1, playerViewModel.volume + 0.1)
+                                playerViewModel.setVolume(newVolume)
                             } label: {
                                 Image(systemName: "speaker.wave.3.fill")
                                     .font(.title3)
                             }
+                            .accessibilityLabel("Increase volume")
                         }
                         .foregroundStyle(.white)
                         
-                        Slider(value: $volume, in: 0...1)
-                            .tint(.white)
-                            .onChange(of: volume) { _, newValue in
-                                playerViewModel.setVolume(Float(newValue))
-                            }
+                        Slider(value: Binding(
+                            get: { Double(playerViewModel.volume) },
+                            set: { playerViewModel.setVolume(Float($0)) }
+                        ), in: 0...1)
+                        .tint(.white)
+                        .accessibilityLabel("Volume")
                         
                         if let timerText = playerViewModel.sleepTimerRemaining {
                             HStack {

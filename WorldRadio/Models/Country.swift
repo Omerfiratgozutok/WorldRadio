@@ -1,4 +1,4 @@
-struct Country: Identifiable, Hashable {
+struct Country: Identifiable, Hashable, Codable {
     let id: String  // ISO country code
     let name: String
     let stationCount: Int

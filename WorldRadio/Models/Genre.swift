@@ -1,4 +1,4 @@
-struct Genre: Identifiable, Hashable {
+struct Genre: Identifiable, Hashable, Codable {
     let id: String
     let name: String
     

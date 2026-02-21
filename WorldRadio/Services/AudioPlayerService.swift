@@ -15,6 +15,9 @@ class AudioPlayerService: ObservableObject {
     private var playerItem: AVPlayerItem?
     private var timeObserver: Any?
     private var sleepTimer: Timer?
+    private var playerItemObserver: NSKeyValueObservation?
+    private var cancellables = Set<AnyCancellable>()
+    private var artworkTask: Task<Void, Never>?
     
     private init() {
         setupAudioSession()
@@ -49,21 +52,51 @@ class AudioPlayerService: ObservableObject {
         }
     }
     
+    private func cleanupPlayer() {
+        playerItemObserver?.invalidate()
+        playerItemObserver = nil
+        
+        if let observer = timeObserver {
+            player?.removeTimeObserver(observer)
+            timeObserver = nil
+        }
+        
+        player?.pause()
+        player = nil
+        playerItem = nil
+    }
+    
     func play(station: Station) {
         guard let url = station.streamURL else { return }
+        
+        cancelSleepTimer()
+        
+        cleanupPlayer()
         
         currentStation = station
         isLoading = true
         
         playerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
+        
+        playerItemObserver = playerItem?.observe(\.status) { [weak self] item, _ in
+            Task { @MainActor in
+                if item.status == .readyToPlay {
+                    self?.isLoading = false
+                } else if item.status == .failed {
+                    self?.isLoading = false
+                    self?.isPlaying = false
+                }
+            }
+        }
+        
         player?.play()
         isPlaying = true
         
         updateNowPlayingInfo()
         
         Task {
-            await RadioAPIService.shared.recordStationClick(stationUUID: station.id)
+            try? await RadioAPIService.shared.recordStationClick(stationUUID: station.id)
         }
     }
     
@@ -88,8 +121,8 @@ class AudioPlayerService: ObservableObject {
     }
     
     func stop() {
-        player?.pause()
-        player = nil
+        cancelSleepTimer()
+        cleanupPlayer()
         isPlaying = false
         currentStation = nil
         clearNowPlayingInfo()
@@ -100,7 +133,10 @@ class AudioPlayerService: ObservableObject {
     }
     
     func setSleepTimer(minutes: Int) {
-        sleepTimer?.invalidate()
+        cancelSleepTimer()
+        
+        guard minutes > 0 else { return }
+        
         sleepTimerDate = Date().addingTimeInterval(TimeInterval(minutes * 60))
         
         sleepTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(minutes * 60), repeats: false) { [weak self] _ in
@@ -113,6 +149,7 @@ class AudioPlayerService: ObservableObject {
     
     func cancelSleepTimer() {
         sleepTimer?.invalidate()
+        sleepTimer = nil
         sleepTimerDate = nil
     }
     
@@ -124,12 +161,18 @@ class AudioPlayerService: ObservableObject {
         nowPlayingInfo[MPMediaItemPropertyArtist] = station.country
         nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = true
         
-        if let faviconURL = station.favicon, let url = URL(string: faviconURL) {
-            Task {
-                if let (data, _) = try? await URLSession.shared.data(from: url),
-                   let image = UIImage(data: data) {
-                    nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { _ in image }
-                    MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+        artworkTask?.cancel()
+        if let faviconURL = station.faviconURL {
+            artworkTask = Task {
+                do {
+                    let (data, _) = try await URLSession.shared.data(from: faviconURL)
+                    guard !Task.isCancelled else { return }
+                    if let image = UIImage(data: data) {
+                        nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { _ in image }
+                        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+                    }
+                } catch {
+                    // Ignore artwork loading errors
                 }
             }
         }
@@ -138,6 +181,8 @@ class AudioPlayerService: ObservableObject {
     }
     
     private func clearNowPlayingInfo() {
+        artworkTask?.cancel()
+        artworkTask = nil
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
     }
 }

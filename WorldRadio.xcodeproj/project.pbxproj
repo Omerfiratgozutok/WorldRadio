@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0456EDC16F8AD87F71E32EA1 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184BC9EAB59C09D98F4B2787 /* Country.swift */; };
+		17B1762B2DD0FABE17B7B7A4 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8FF17F775E96B507FDB6E9 /* MiniPlayerView.swift */; };
+		1ADE5EDFDC84CD2A5C86ECF8 /* WorldRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F456685170347A8E6B58C /* WorldRadioApp.swift */; };
+		26FA81BFF0E6AB4BD53393D5 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBAA6D1635DCB4CFE9476DA /* Genre.swift */; };
+		28A242CC778ECAF39ED414A9 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFA0B8886747071CA3C9CCC /* ExploreView.swift */; };
+		36CCF6EFF2493687C6D97090 /* RadioAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA089FEE886C19C67056641 /* RadioAPIService.swift */; };
+		3FE33F1027EF1F071F1BC949 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C735E441B1F61DE875A4B53 /* SettingsView.swift */; };
+		409A627940B0218E0D80E762 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420D71A6AB33E6B64CAEEE90 /* ExploreViewModel.swift */; };
+		4242CF948BB04E51DBBF292C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74B484AA5475A07925F82EE /* ErrorView.swift */; };
+		4DCAA2C1A07A0C013542D7BA /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B05A95AC03957A2E8FA6228 /* SettingsViewModel.swift */; };
+		69FB7474CCD8A9651277C811 /* StationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7894E1B8FF3B61A2C32DC3 /* StationRowView.swift */; };
+		6AEE3E8FEF7A9653448EA11D /* CountryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2F5CEB512E01875E04417 /* CountryRowView.swift */; };
+		70AC7F4269AC36A2055B0FDD /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB70555952E3832D576F3BA /* FavoritesViewModel.swift */; };
+		7BFA36E5BFAAE3E6E2505B9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF886726971E2E4963CBEA4A /* Assets.xcassets */; };
+		8362DF0AF44DD06ABE393995 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646822293BC4AB2A8E4F3010 /* FavoritesView.swift */; };
+		8868B007CF17E2AF4FCD4DFA /* CountryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF27609E1AC24C0812C3C0 /* CountryDetailViewModel.swift */; };
+		8A14FEC13498FBF39D97EBE6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E77D7DFC5194D17A46F0B /* HomeView.swift */; };
+		9A7047133A47501B7321EA3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42095B0DAD41C9F5E6CE87B1 /* ContentView.swift */; };
+		A886201BE3D3E950B989FF25 /* StationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577D928BF0B82C2EDFDB0BB /* StationCardView.swift */; };
+		AC9D1E44CF1B89EFC10CD9BE /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C254E126B82A5E46E4112790 /* AudioPlayerService.swift */; };
+		B278F495014342594333B098 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD43F95784DFDF255B86306 /* Station.swift */; };
+		BC34E42877794AD9DA92E3E4 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F23BB16E64566939B51D0 /* UserData.swift */; };
+		D43F9B132D5C542170FB6790 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A753550CDFCCDB082A944 /* HomeViewModel.swift */; };
+		D5C90071EFF4ED63A40E8CC6 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BAB04DF70C8A75794149FB /* PlayerViewModel.swift */; };
+		E2D01D0102D3552B0A12F176 /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345A226374296030348CE82F /* CountryDetailView.swift */; };
+		EE219ADDFB9E16EE8906EEF6 /* GenreChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89630BB6AD4AA87F40B6F462 /* GenreChipView.swift */; };
+		F5D60A55A223095F03F81AF9 /* MLRecommendationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7B3C87067335C60CDD3277 /* MLRecommendationService.swift */; };
+		F8016C6B232DBEB436734CF6 /* FullPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5935BDB5D25A9E8FBB45C2D8 /* FullPlayerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0577D928BF0B82C2EDFDB0BB /* StationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCardView.swift; sourceTree = "<group>"; };
+		0B05A95AC03957A2E8FA6228 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		0C735E441B1F61DE875A4B53 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		184BC9EAB59C09D98F4B2787 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		1B71EF8FE5DE76079A275F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2AFA0B8886747071CA3C9CCC /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		345A226374296030348CE82F /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
+		3BBF27609E1AC24C0812C3C0 /* CountryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewModel.swift; sourceTree = "<group>"; };
+		42095B0DAD41C9F5E6CE87B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		420D71A6AB33E6B64CAEEE90 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		462A753550CDFCCDB082A944 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		550F23BB16E64566939B51D0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		56E2F5CEB512E01875E04417 /* CountryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRowView.swift; sourceTree = "<group>"; };
+		5935BDB5D25A9E8FBB45C2D8 /* FullPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPlayerView.swift; sourceTree = "<group>"; };
+		646822293BC4AB2A8E4F3010 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		6AA089FEE886C19C67056641 /* RadioAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioAPIService.swift; sourceTree = "<group>"; };
+		6BEC7F271F1334719230285C /* WorldRadio.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = WorldRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7B3C87067335C60CDD3277 /* MLRecommendationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLRecommendationService.swift; sourceTree = "<group>"; };
+		7A8FF17F775E96B507FDB6E9 /* MiniPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
+		7C7894E1B8FF3B61A2C32DC3 /* StationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRowView.swift; sourceTree = "<group>"; };
+		7FD43F95784DFDF255B86306 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		89630BB6AD4AA87F40B6F462 /* GenreChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreChipView.swift; sourceTree = "<group>"; };
+		8EB70555952E3832D576F3BA /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		A7BAB04DF70C8A75794149FB /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		AE9F456685170347A8E6B58C /* WorldRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldRadioApp.swift; sourceTree = "<group>"; };
+		C254E126B82A5E46E4112790 /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
+		CE2E77D7DFC5194D17A46F0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D74B484AA5475A07925F82EE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		EEBAA6D1635DCB4CFE9476DA /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		EF886726971E2E4963CBEA4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		17972921BD004EE415E957C0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3BBF27609E1AC24C0812C3C0 /* CountryDetailViewModel.swift */,
+				420D71A6AB33E6B64CAEEE90 /* ExploreViewModel.swift */,
+				8EB70555952E3832D576F3BA /* FavoritesViewModel.swift */,
+				462A753550CDFCCDB082A944 /* HomeViewModel.swift */,
+				A7BAB04DF70C8A75794149FB /* PlayerViewModel.swift */,
+				0B05A95AC03957A2E8FA6228 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1FC1225C4A24DD541A65B9C0 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				2AFA0B8886747071CA3C9CCC /* ExploreView.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		2844D2FF66FCB8FCAC52630C = {
+			isa = PBXGroup;
+			children = (
+				8113A05C1612A31107ED8B54 /* WorldRadio */,
+				92F046F48EAEBEB48AB65E19 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AB832AA23A82BC3382176EA /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				1B71EF8FE5DE76079A275F6A /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		4C5881AC26049D83445577C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				184BC9EAB59C09D98F4B2787 /* Country.swift */,
+				EEBAA6D1635DCB4CFE9476DA /* Genre.swift */,
+				7FD43F95784DFDF255B86306 /* Station.swift */,
+				550F23BB16E64566939B51D0 /* UserData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		556737796143B1451166A1AB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0C735E441B1F61DE875A4B53 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7B37D4E8D9FFAF0B22B4FEFA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AE9F456685170347A8E6B58C /* WorldRadioApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8113A05C1612A31107ED8B54 /* WorldRadio */ = {
+			isa = PBXGroup;
+			children = (
+				7B37D4E8D9FFAF0B22B4FEFA /* App */,
+				4C5881AC26049D83445577C6 /* Models */,
+				CEE384A9CADD6799A0F933DA /* Resources */,
+				C9DB37211591DA9CB09E8941 /* Services */,
+				4AB832AA23A82BC3382176EA /* Supporting */,
+				17972921BD004EE415E957C0 /* ViewModels */,
+				C4E9DD46B9536D8CC6024F10 /* Views */,
+			);
+			path = WorldRadio;
+			sourceTree = "<group>";
+		};
+		8CCEB8A3878E675C286D8A28 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				646822293BC4AB2A8E4F3010 /* FavoritesView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		92F046F48EAEBEB48AB65E19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BEC7F271F1334719230285C /* WorldRadio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4E9DD46B9536D8CC6024F10 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42095B0DAD41C9F5E6CE87B1 /* ContentView.swift */,
+				F772A0F9AD391397A8B21643 /* Components */,
+				1FC1225C4A24DD541A65B9C0 /* Explore */,
+				8CCEB8A3878E675C286D8A28 /* Favorites */,
+				F2FD6E24B4BA41D00F5F72E8 /* Home */,
+				FD4CC1540EA577792308691D /* Player */,
+				556737796143B1451166A1AB /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C9DB37211591DA9CB09E8941 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C254E126B82A5E46E4112790 /* AudioPlayerService.swift */,
+				6E7B3C87067335C60CDD3277 /* MLRecommendationService.swift */,
+				6AA089FEE886C19C67056641 /* RadioAPIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CEE384A9CADD6799A0F933DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EF886726971E2E4963CBEA4A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F2FD6E24B4BA41D00F5F72E8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				345A226374296030348CE82F /* CountryDetailView.swift */,
+				CE2E77D7DFC5194D17A46F0B /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F772A0F9AD391397A8B21643 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				56E2F5CEB512E01875E04417 /* CountryRowView.swift */,
+				D74B484AA5475A07925F82EE /* ErrorView.swift */,
+				89630BB6AD4AA87F40B6F462 /* GenreChipView.swift */,
+				0577D928BF0B82C2EDFDB0BB /* StationCardView.swift */,
+				7C7894E1B8FF3B61A2C32DC3 /* StationRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FD4CC1540EA577792308691D /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5935BDB5D25A9E8FBB45C2D8 /* FullPlayerView.swift */,
+				7A8FF17F775E96B507FDB6E9 /* MiniPlayerView.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ADF76461D1264028DC4F5364 /* WorldRadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D21283585EA3B9D19E8C060 /* Build configuration list for PBXNativeTarget "WorldRadio" */;
+			buildPhases = (
+				2C5B2376A5D4BE09CE7192B7 /* Sources */,
+				6DA75613289FB346F9D52DB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WorldRadio;
+			packageProductDependencies = (
+			);
+			productName = WorldRadio;
+			productReference = 6BEC7F271F1334719230285C /* WorldRadio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		841812FEEEC108618182E845 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					ADF76461D1264028DC4F5364 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1A179ACE255E016B37915ABA /* Build configuration list for PBXProject "WorldRadio" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2844D2FF66FCB8FCAC52630C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ADF76461D1264028DC4F5364 /* WorldRadio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6DA75613289FB346F9D52DB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BFA36E5BFAAE3E6E2505B9F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C5B2376A5D4BE09CE7192B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC9D1E44CF1B89EFC10CD9BE /* AudioPlayerService.swift in Sources */,
+				9A7047133A47501B7321EA3C /* ContentView.swift in Sources */,
+				0456EDC16F8AD87F71E32EA1 /* Country.swift in Sources */,
+				E2D01D0102D3552B0A12F176 /* CountryDetailView.swift in Sources */,
+				8868B007CF17E2AF4FCD4DFA /* CountryDetailViewModel.swift in Sources */,
+				6AEE3E8FEF7A9653448EA11D /* CountryRowView.swift in Sources */,
+				4242CF948BB04E51DBBF292C /* ErrorView.swift in Sources */,
+				28A242CC778ECAF39ED414A9 /* ExploreView.swift in Sources */,
+				409A627940B0218E0D80E762 /* ExploreViewModel.swift in Sources */,
+				8362DF0AF44DD06ABE393995 /* FavoritesView.swift in Sources */,
+				70AC7F4269AC36A2055B0FDD /* FavoritesViewModel.swift in Sources */,
+				F8016C6B232DBEB436734CF6 /* FullPlayerView.swift in Sources */,
+				26FA81BFF0E6AB4BD53393D5 /* Genre.swift in Sources */,
+				EE219ADDFB9E16EE8906EEF6 /* GenreChipView.swift in Sources */,
+				8A14FEC13498FBF39D97EBE6 /* HomeView.swift in Sources */,
+				D43F9B132D5C542170FB6790 /* HomeViewModel.swift in Sources */,
+				F5D60A55A223095F03F81AF9 /* MLRecommendationService.swift in Sources */,
+				17B1762B2DD0FABE17B7B7A4 /* MiniPlayerView.swift in Sources */,
+				D5C90071EFF4ED63A40E8CC6 /* PlayerViewModel.swift in Sources */,
+				36CCF6EFF2493687C6D97090 /* RadioAPIService.swift in Sources */,
+				3FE33F1027EF1F071F1BC949 /* SettingsView.swift in Sources */,
+				4DCAA2C1A07A0C013542D7BA /* SettingsViewModel.swift in Sources */,
+				B278F495014342594333B098 /* Station.swift in Sources */,
+				A886201BE3D3E950B989FF25 /* StationCardView.swift in Sources */,
+				69FB7474CCD8A9651277C811 /* StationRowView.swift in Sources */,
+				BC34E42877794AD9DA92E3E4 /* UserData.swift in Sources */,
+				1ADE5EDFDC84CD2A5C86ECF8 /* WorldRadioApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		13E84BB027CB1B01BDE9292E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WorldRadio/Supporting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		70458BDC0F462E1BBFA2CD34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WorldRadio/Supporting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		80F9505BB7ACA874E2897EF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WorldRadio/Supporting/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.worldradio.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F7D5D45F6E317897621401F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WorldRadio/Supporting/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.worldradio.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A179ACE255E016B37915ABA /* Build configuration list for PBXProject "WorldRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70458BDC0F462E1BBFA2CD34 /* Debug */,
+				13E84BB027CB1B01BDE9292E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8D21283585EA3B9D19E8C060 /* Build configuration list for PBXNativeTarget "WorldRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80F9505BB7ACA874E2897EF4 /* Debug */,
+				8F7D5D45F6E317897621401F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 841812FEEEC108618182E845 /* Project object */;
+}
